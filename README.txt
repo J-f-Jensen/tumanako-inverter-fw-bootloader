@@ -69,3 +69,14 @@ cd bootupdater
 make
 
 And upload it to your board using a JTAG/SWD adapter, the updater.py script or the esp8266 web interface
+
+Boot loader is on 0x08000000 and firmware at 0x08001000
+
+First time upload on a fresh bluepill, connect USB-Serial RX/TX to PA_9 (TX) and PA_10 (RX), move boot jumper 0 and use stm32flash to upload the boot loader file, remeber to move the boot jumper back before resetting the board: 
+stm32_loader.bin
+
+Switch RX/TX to pin PB_10 (TX) and PB_11 (RX) and use update.py or ESP web interface to upload the firmware
+
+Note for Windows users: Pyton serial interface is not installed as default in Windows, run the following command in a command prompt to install it:
+pip install serial
+
